@@ -3,6 +3,7 @@
 var CURRENT_INPUT_GRID = new Grid(3, 3);
 var CURRENT_OUTPUT_GRID = new Grid(3, 3);
 var TEST_PAIRS = new Array();
+var TRAIN_PAIRS = new Array(); // ADDED
 var CURRENT_TEST_PAIR_INDEX = 0;
 var COPY_PASTE_DATA = new Array();
 
@@ -11,10 +12,15 @@ var EDITION_GRID_HEIGHT = 500;
 var EDITION_GRID_WIDTH = 500;
 var MAX_CELL_SIZE = 100;
 
+// ADDED
+function solve_puzzle(){
+    solve_full()
+}
 
 function resetTask() {
     CURRENT_INPUT_GRID = new Grid(3, 3);
     TEST_PAIRS = new Array();
+    TRAIN_PAIRS = new Array();
     CURRENT_TEST_PAIR_INDEX = 0;
     $('#task_preview').html('');
     resetOutputGrid();
@@ -123,6 +129,7 @@ function loadJSONTask(train, test) {
         input_grid = convertSerializedGridToGridObject(values)
         values = pair['output'];
         output_grid = convertSerializedGridToGridObject(values)
+        TRAIN_PAIRS.push(pair)
         fillPairPreview(i, input_grid, output_grid);
     }
     for (var i=0; i < test.length; i++) {
