@@ -1,3 +1,20 @@
+# Note from Orion
+
+Hello! The majority of this repository belongs to François Chollet (https://github.com/fchollet/ARC-AGI). In this branch I've added my naive solution to the problem with the following naive high-level strategy:
+
+1. find "Objects" in input/output
+2. Categorize Objects
+3. Try sequences of base domain of actions to find a path from input-objects -> output-objects
+4. See if the sequence works on all test sets
+
+a sequence of actions can consist of something like:
+- for objects in x category, do y actions
+- for objects in a category, do b actions
+- etc...
+
+Everything below this is from the original README from the above repository.
+
+
 # Abstraction and Reasoning Corpus for Artificial General Intelligence (ARC-AGI)
 
 This repository contains the ARC-AGI task data, as well as a browser-based interface for humans to try their hand at solving the tasks manually.
