@@ -16,7 +16,7 @@
 
 
 
-// Will represent the mathematical classification of the shape
+// Will represent the mathematical (topological) classification of the shape
 class ShapeGroup {
     // Loop
     // Line
@@ -65,8 +65,8 @@ function solve_full() {
         // 5. in dimensions different, out dimensions different; ?% confident
     var dimensions_type = get_dimensions_type()
     console.log(`dimensions type: ${dimensions_type}`)
-    height = 1
-    width = 1
+    var height = 1
+    var width = 1
     if (dimensions_type == 1) {
         height = CURRENT_INPUT_GRID.height
         width = CURRENT_INPUT_GRID.width
@@ -75,8 +75,9 @@ function solve_full() {
         height = TRAIN_PAIRS[0]['output'].length
         width = TRAIN_PAIRS[0]['output'][0].length
     }
+    // 2. Try finding ruleset for test puzzles
     // 2. Let's get some heckin objects based on shape
-    objects = find_objects_BFS(CURRENT_INPUT_GRID)
+    var input_objects = find_objects_BFS(CURRENT_INPUT_GRID)
     console.log(`trying to find objects`)
     console.log(objects)
 
